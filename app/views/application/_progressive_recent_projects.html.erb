@@ -2,7 +2,7 @@
 session[:recent_projects] ||= []
 if project
   session[:recent_projects].delete(project.id)
-  session[:recent_projects].unshift(project.id).slice!(5)
+  session[:recent_projects].unshift(project.id).slice!(15)
 end
 
 if session[:recent_projects].any? && progressive_setting?(:show_recent_projects) %>
